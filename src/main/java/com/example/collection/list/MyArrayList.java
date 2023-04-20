@@ -54,4 +54,15 @@ public class MyArrayList<T> {
         }
         return false;
     }
+
+    public int indexOf(T index) {
+
+        for (int i = 0; i < store.length; i++) {
+            T isEqual = (T) store[i];
+
+            if (isEqual.equals(index))
+                return i;
+        }
+        return -1;
+    }
 }

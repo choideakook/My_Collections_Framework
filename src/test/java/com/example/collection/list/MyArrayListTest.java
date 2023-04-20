@@ -73,7 +73,14 @@ class MyArrayListTest {
 
     @Test
     void indexOf() {
+        stringList.add("test0");
+        stringList.add("test1");
+        stringList.add("test2");
 
+        assertThat(stringList.indexOf("test0")).isEqualTo(0);
+        assertThat(stringList.indexOf("test1")).isEqualTo(1);
+        assertThat(stringList.indexOf("test2")).isEqualTo(2);
+        assertThat(stringList.indexOf("test100")).isEqualTo(-1);
     }
 
     @Test
