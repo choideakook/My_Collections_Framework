@@ -65,4 +65,11 @@ public class MyArrayList<T> {
         }
         return -1;
     }
+
+
+    public void clear() {
+        Object[] clear = new Object[0];
+        store = clear;
+        size = 0;
+    }
 }

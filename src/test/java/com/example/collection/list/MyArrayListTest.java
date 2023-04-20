@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class MyArrayListTest {
 
@@ -34,6 +35,8 @@ class MyArrayListTest {
         assertThat(stringList.get(0)).isEqualTo("test1");
         assertThat(stringList.get(1)).isEqualTo("test2");
         assertThat(stringList.get(2)).isEqualTo("test3");
+        assertThatThrownBy(() -> stringList.get(3))
+                .isInstanceOf(ArrayIndexOutOfBoundsException.class);
     }
 
     @Test
@@ -85,6 +88,16 @@ class MyArrayListTest {
 
     @Test
     void clear() {
+        stringList.add("test0");
+        stringList.add("test1");
+        stringList.add("test2");
 
+        assertThat(stringList.size()).isEqualTo(3);
+
+        stringList.clear();
+
+        assertThat(stringList.size()).isEqualTo(0);
+        assertThatThrownBy(() -> stringList.get(1))
+                .isInstanceOf(ArrayIndexOutOfBoundsException.class);
     }
 }
